@@ -6,6 +6,7 @@ SCRATCH=${2} # full path to scratch diredtory
 RESULT_DIR=${3} # full path to result directory
 PROG=${4} # full path to executable
 THREADS=${5}
+export OMP_NUM_THREADS=$THREADS
 
 # Define basis sets and methods 
 basis="aug-cc-pVDZ"
