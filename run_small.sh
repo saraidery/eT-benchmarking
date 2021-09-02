@@ -5,6 +5,7 @@ WRK=${1} # full path to work directory
 SCRATCH=${2} # full path to scratch diredtory
 RESULT_DIR=${3} # full path to result directory
 PROG=${4} # full path to executable
+echo $WRK
 
 # Define basis sets and methods 
 basis="aug-cc-pVDZ aug-cc-pVTZ"
@@ -30,6 +31,8 @@ do
      sed -e "s/basis-x/$b/" "${molecule}.inp" > "${molecule}_${b}.inp"
      for m in $method
      do
+        res=$RESULT_DIR/${molecule}/${b}/${m}
+        mkdir -p $res
         # insert method 
         sed -e "s/method-x/$m/" "${molecule}_${b}.inp" > "${molecule}_${b}_${m}.inp"
 
@@ -41,11 +44,8 @@ do
 
 	cd $SCRATCH
         time ./eT -omp $THREADS
-        for r in eT.*
-        do
-           cp $r $RESULT_DIR/${molecule}_${b}_${m}.$r
-        done
-        cd $WORK
+        cp eT.* $res
+        cd $WRK
 
      done
      rm ${molecule}_${b}.inp
