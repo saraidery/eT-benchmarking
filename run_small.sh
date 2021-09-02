@@ -1,0 +1,54 @@
+#!/bin/bash
+IFS_copy="$IFS"
+
+WRK= # full path to work directory
+SCRATCH= # full path to scratch diredtory
+RESULT_DIR= # full path to result directory
+PROG= # full path to executable
+
+# Define basis sets and methods 
+basis="aug-cc-pVDZ aug-cc-pVTZ"
+method="ccs cc2 ccsd cc3"
+
+for f in geometries/small/*.xyz
+do
+   molecule=$(basename $f .xyz)
+   
+   # extract geometry
+   IFS=
+   geometry=$(tail -n +3 $f | cut -f 1-4 )
+
+   # general input for given geometry   
+   cp eT.inp "${molecule}.inp"
+   echo $geometry >> "${molecule}.inp"
+   echo "end geometry" >> "${molecule}.inp" 
+  
+   IFS="$IFS_copy"
+   for b in $basis
+   do
+     # insert basis set
+     sed -e "s/basis-x/$b/" "${molecule}.inp" > "${molecule}_${b}.inp"
+     for m in $method
+     do
+        # insert method 
+        sed -e "s/method-x/$m/" "${molecule}_${b}.inp" > "${molecule}_${b}_${m}.inp"
+
+        # run calculation
+        echo "Running $m calculation on $molecule/$b"
+        
+        cp $PROG/eT $SCRATCH/eT
+        mv ${molecule}_${b}_${m}.inp $SCRATCH/
+
+	cd $SCRATCH
+        time ./eT -omp $THREADS
+        for r in eT.*
+        do
+           cp $r $RESULT_DIR/${molecule}_${b}_${m}.$r
+        done
+        cd $WORK
+
+     done
+     rm ${molecule}_${b}.inp
+   done
+   rm ${molecule}.inp
+done

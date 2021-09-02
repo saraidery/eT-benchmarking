@@ -1,0 +1,27 @@
+system
+  name: CC benchmark
+  charge: 0
+  multiplicity: 1
+end system
+
+do
+  response
+end do
+
+method
+  hf
+  method-x
+end method
+
+cc response
+  eom
+   dipole length
+   transition moments
+end cc response
+
+solver cc es
+   singlet states: 1
+end solver cc es
+
+geometry
+basis: basis-x
