@@ -37,7 +37,7 @@ do
         echo "Running $m calculation on $molecule/$b"
         
         cp $PROG/eT $SCRATCH/eT
-        mv ${molecule}_${b}_${m}.inp $SCRATCH/
+        mv ${molecule}_${b}_${m}.inp $SCRATCH/eT.inp
 
 	cd $SCRATCH
         time ./eT -omp $THREADS
