@@ -1,0 +1,21 @@
+system
+  name: CC benchmark
+  charge: 0
+  multiplicity: 1
+end system
+
+do
+  excited state
+end do
+
+method
+  hf
+  method-x
+end method
+
+solver cc es
+   singlet states: 1
+end solver cc es
+
+geometry
+basis: basis-x
