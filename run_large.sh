@@ -41,11 +41,8 @@ do
 
 	cd $SCRATCH
         time ./eT -omp $THREADS
-        for r in eT.*
-        do
-           cp $r $RESULT_DIR/${molecule}_${b}_${m}.$r
-        done
-        cd $WORK
+        cp eT.* $res
+        cd $WRK
 
      done
      rm ${molecule}_${b}.inp
