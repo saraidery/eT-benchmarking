@@ -1,10 +1,13 @@
 #!/bin/bash
 IFS_copy="$IFS"
 
+
 WRK=${1} # full path to work directory
 SCRATCH=${2} # full path to scratch diredtory
 RESULT_DIR=${3} # full path to result directory
 PROG=${4} # full path to executable
+THREADS=${5}
+
 echo $WRK
 
 # Define basis sets and methods 
