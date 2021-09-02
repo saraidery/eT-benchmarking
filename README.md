@@ -1,4 +1,4 @@
-# eT_benchmarking
+# eT benchmarking
 Inputs and geometries for benchmarking of eT
 
 ## Running
