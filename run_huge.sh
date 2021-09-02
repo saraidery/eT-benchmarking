@@ -32,6 +32,9 @@ do
      sed -e "s/basis-x/$b/" "${molecule}.inp" > "${molecule}_${b}.inp"
      for m in $method
      do
+        res=$RESULT_DIR/${molecule}/${b}/${m}
+        mkdir -p $res
+       
         # insert method 
         sed -e "s/method-x/$m/" "${molecule}_${b}.inp" > "${molecule}_${b}_${m}.inp"
 
