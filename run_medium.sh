@@ -1,10 +1,10 @@
 #!/bin/bash
 IFS_copy="$IFS"
 
-WRK= # full path to work directory
-SCRATCH= # full path to scratch diredtory
-RESULT_DIR= # full path to result directory
-PROG= # full path to executable
+WRK=${1} # full path to work directory
+SCRATCH=${2} # full path to scratch diredtory
+RESULT_DIR=${3} # full path to result directory
+PROG=${4} # full path to executable
 
 # Define basis sets and methods 
 basis="aug-cc-pVDZ"
