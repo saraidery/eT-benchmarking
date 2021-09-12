@@ -4,6 +4,10 @@ system
   multiplicity: 1
 end system
 
+print
+   timing print level: verbose
+end print
+
 do
   excited state
 end do
@@ -16,6 +20,11 @@ end method
 solver cc es
    singlet states: 1
 end solver cc es
+
+memory
+   available: 350
+   unit: GB
+end memory
 
 geometry
 basis: basis-x

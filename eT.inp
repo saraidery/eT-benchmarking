@@ -4,24 +4,54 @@ system
   multiplicity: 1
 end system
 
+print
+   timing print level: verbose
+end print
+
 do
   response
 end do
+
+memory
+  available: 350
+  unit: GB
+end memory
 
 method
   hf
   method-x
 end method
 
+solver scf
+  gradient threshold: 1.0d-7
+  energy threshold: 1.0d0
+end solver scf
+
+solver cholesky
+  threshold: 1.0d-4
+end solver cholesky
+
+solver cc multipliers
+  threshold: 1.0d-5
+end solver cc multipliers
+
+solver cc gs
+  omega threshold: 1.0d-5
+  energy threshold: 1.0d0
+end solver cc gs
+
+solver cc es
+   residual threshold: 1.0d-3
+   energy threshold: 1.0d0
+   singlet states: 1
+end solver cc es
+
 cc response
-  eom
+   eom
    dipole length
    transition moments
 end cc response
 
-solver cc es
-   singlet states: 1
-end solver cc es
 
 geometry
 basis: basis-x

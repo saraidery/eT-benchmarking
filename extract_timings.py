@@ -155,7 +155,6 @@ def get_summary(folder, summary_file, title):
     ]
 
     for molecule in molecules:
-        print(molecule)
         molecule_folder = os.path.join(folder, molecule)
         bases = os.listdir(molecule_folder)
         for basis in bases:

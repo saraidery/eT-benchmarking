@@ -46,6 +46,7 @@ do
 	cd $SCRATCH
         time ./eT -omp $THREADS
         cp eT.* $res
+        cp *timing.out $res
         rm $SCRATCH/*
         cd $WRK
 
