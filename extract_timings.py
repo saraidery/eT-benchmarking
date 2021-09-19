@@ -140,7 +140,7 @@ def format_time(time):
 
     return string
 
-def get_summary(folder, summary_file, title):
+def get_summary(folder, summary_file, title, timings_file_name):
 
     print_latex_header(summary_file, title)
     molecules = os.listdir(folder)
@@ -157,15 +157,13 @@ def get_summary(folder, summary_file, title):
     for molecule in molecules:
         molecule_folder = os.path.join(folder, molecule)
         bases = os.listdir(molecule_folder)
-        for basis in bases:
+        for basis in sorted(bases):
             basis_folder = os.path.join(molecule_folder, basis)
-            methods = os.listdir(basis_folder)
+            methods = sorted(os.listdir(basis_folder))
 
-            data_wall_t, data_cpu_t = get_data_for_molecule(molecule, basis, basis_folder, search_strings, methods, "eT.timing.out")
+            data_wall_t, data_cpu_t = get_data_for_molecule(molecule, basis, basis_folder, search_strings, methods, timings_file_name)
             print_latex_table(search_strings, methods, data_wall_t, data_cpu_t, molecule + " " + basis, summary_file)
 
     print_latex_footer(summary_file)
 
-get_summary("disco", "disco.tex", "Disco timing benchmark on (small) bigmem nodes on Saga")
-
-
+get_summary("disco", "disco.tex", "Disco timing benchmark on (small) bigmem nodes on Saga", "eT.timing.out")
