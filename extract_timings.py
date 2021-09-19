@@ -165,7 +165,7 @@ def get_summary(folder, summary_file, title, timings_file_name):
         "Time to calculate EOM properties",
     ]
 
-    for molecule in molecules:
+    for molecule in sorted(molecules):
         molecule_folder = os.path.join(folder, molecule)
         bases = os.listdir(molecule_folder)
         for basis in sorted(bases):
