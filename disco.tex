@@ -51,13 +51,13 @@ Task & \multicolumn{2}{c}{ccsd} & \multicolumn{2}{c}{cc2} & \multicolumn{2}{c}{c
 \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
  & cpu & wall & cpu & wall & cpu & wall & cpu & wall\\
 \midrule
-SCF solver & 29.61 min & 44.70 s & 29.56 min & 44.55 s & 29.60 min & 44.65 s & 29.70 min & 44.80 s\\
-Cholesky decomposition of ERIs & 3.44 min & 6.94 s & 3.74 min & 7.38 s & 3.89 min & 10.09 s & 3.45 min & 6.91 s\\
-CC GS solver time & 83.15 min & 8.49 min & 4.25 min & 6.92 s & 128.39 h & 3.33 h & 33.01 s & 0.85 s\\
-multipliers & 97.45 min & 38.24 min & 12.08 min & 19.20 s & 281.42 h & 7.19 h & 43.12 s & 1.23 s\\
-excited state (right) & 3.20 h & 9.44 min & 44.61 min & 4.96 min & 657.90 h & 16.61 h & 33.30 s & 0.89 s\\
-excited state (left) & 57.78 min & 2.20 min & 10.11 min & 32.50 s & 628.01 h & 15.92 h & 32.18 s & 0.86 s\\
-Time to calculate EOM properties & 24.99 s & 1.15 s & 86.65 s & 2.74 s & 83.31 h & 2.24 h & 0.22 s & 0.01 s\\
+SCF solver & 29.95 min & 45.12 s & 29.99 min & 45.20 s & 29.37 min & 44.28 s & 30.14 min & 45.46 s\\
+Cholesky decomposition of ERIs & 3.68 min & 7.26 s & 3.66 min & 7.35 s & 3.80 min & 7.50 s & 3.37 min & 6.79 s\\
+CC GS solver time & 84.23 min & 2.76 min & 4.10 min & 6.63 s & 125.87 h & 3.17 h & 33.12 s & 0.86 s\\
+multipliers & 97.13 min & 3.91 min & 11.78 min & 17.89 s & 273.98 h & 6.91 h & 41.98 s & 1.12 s\\
+excited state (right) & 3.03 h & 8.57 min & 44.25 min & 4.98 min & 647.19 h & 16.31 h & 35.43 s & 0.96 s\\
+excited state (left) & 56.40 min & 118.47 s & 10.31 min & 32.93 s & 623.25 h & 15.76 h & 29.15 s & 0.77 s\\
+Time to calculate EOM properties & 24.80 s & 1.16 s & 80.84 s & 2.59 s & 83.89 h & 2.25 h & 0.23 s & 0.01 s\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -69,11 +69,11 @@ Task & \multicolumn{2}{c}{lowmem-cc2} & \multicolumn{2}{c}{ccs}\\
 \cmidrule(lr){2-3}\cmidrule(lr){4-5}
  & cpu & wall & cpu & wall\\
 \midrule
-SCF solver & 91.63 h & 2.30 h & 90.33 h & 2.26 h\\
-Cholesky decomposition of ERIs & 6.45 h & 10.82 min & 6.47 h & 10.59 min\\
-CC GS solver time & 199.30 h & 6.07 h & 119.21 min & 10.36 min\\
+SCF solver & 91.42 h & 2.29 h & 91.47 h & 2.29 h\\
+Cholesky decomposition of ERIs & 6.48 h & 10.77 min & 7.03 h & 12.15 min\\
+CC GS solver time & 203.80 h & 6.05 h & 2.08 h & 9.85 min\\
 multipliers & -- & -- & -- & --\\
-excited state (right) & 1489.15 h & 43.05 h & 2.94 h & 8.29 min\\
+excited state (right) & 1531.66 h & 44.90 h & 3.09 h & 7.91 min\\
 excited state (left) & -- & -- & -- & --\\
 Time to calculate EOM properties & -- & -- & -- & --\\
 \bottomrule
@@ -87,13 +87,13 @@ Task & \multicolumn{2}{c}{ccs} & \multicolumn{2}{c}{ccsd} & \multicolumn{2}{c}{c
 \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
  & cpu & wall & cpu & wall & cpu & wall & cpu & wall\\
 \midrule
-SCF solver & 18.27 min & 27.66 s & 18.28 min & 27.61 s & 25.89 min & 39.13 s & 18.36 min & 27.73 s\\
-Cholesky decomposition of ERIs & 2.44 min & 4.99 s & 2.40 min & 4.90 s & 2.35 min & 5.88 s & 2.26 min & 4.70 s\\
-CC GS solver time & 21.32 s & 0.55 s & 51.31 min & 100.98 s & 47.80 h & 76.21 min & 2.66 min & 4.18 s\\
-multipliers & 22.19 s & 0.58 s & 53.21 min & 2.12 min & 98.02 h & 2.71 h & 6.86 min & 10.42 s\\
-excited state (right) & 20.99 s & 0.56 s & 62.96 min & 2.62 min & 307.38 h & 7.86 h & 37.12 min & 4.68 min\\
-excited state (left) & 18.90 s & 0.49 s & 31.54 min & 66.11 s & 341.28 h & 9.23 h & 6.27 min & 19.09 s\\
-Time to calculate EOM properties & 0.20 s & 0.01 s & 17.82 s & 0.76 s & 29.15 h & 48.05 min & 46.79 s & 1.49 s\\
+SCF solver & 18.27 min & 27.66 s & 18.28 min & 27.61 s & 18.27 min & 27.60 s & 18.36 min & 27.73 s\\
+Cholesky decomposition of ERIs & 2.44 min & 4.99 s & 2.40 min & 4.90 s & 2.26 min & 4.67 s & 2.26 min & 4.70 s\\
+CC GS solver time & 21.32 s & 0.55 s & 51.31 min & 100.98 s & 46.86 h & 70.86 min & 2.66 min & 4.18 s\\
+multipliers & 22.19 s & 0.58 s & 53.21 min & 2.12 min & 94.99 h & 2.40 h & 6.86 min & 10.42 s\\
+excited state (right) & 20.99 s & 0.56 s & 62.96 min & 2.62 min & 301.27 h & 7.65 h & 37.12 min & 4.68 min\\
+excited state (left) & 18.90 s & 0.49 s & 31.54 min & 66.11 s & 331.85 h & 8.43 h & 6.27 min & 19.09 s\\
+Time to calculate EOM properties & 0.20 s & 0.01 s & 17.82 s & 0.76 s & 28.72 h & 47.55 min & 46.79 s & 1.49 s\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -159,13 +159,13 @@ Task & \multicolumn{2}{c}{ccs} & \multicolumn{2}{c}{ccsd} & \multicolumn{2}{c}{c
 \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
  & cpu & wall & cpu & wall & cpu & wall\\
 \midrule
-SCF solver & 3.33 h & 5.01 min & 3.33 h & 5.01 min & 3.35 h & 5.05 min\\
-Cholesky decomposition of ERIs & 14.00 min & 25.07 s & 14.41 min & 25.25 s & 14.37 min & 25.38 s\\
-CC GS solver time & 2.37 min & 3.63 s & 17.03 h & 29.23 min & 31.17 min & 48.46 s\\
-multipliers & 4.55 min & 6.86 s & 34.53 h & 63.77 min & 106.27 min & 2.73 min\\
-excited state (right) & 4.14 min & 6.63 s & 36.69 h & 69.76 min & 3.63 h & 18.70 min\\
-excited state (left) & 3.24 min & 4.91 s & 20.34 h & 35.26 min & 74.05 min & 3.67 min\\
-Time to calculate EOM properties & 0.76 s & 0.02 s & 4.12 min & 12.20 s & 11.28 min & 23.67 s\\
+SCF solver & 3.32 h & 5.00 min & 3.31 h & 4.98 min & 3.34 h & 5.02 min\\
+Cholesky decomposition of ERIs & 14.35 min & 25.24 s & 14.72 min & 25.66 s & 14.28 min & 25.06 s\\
+CC GS solver time & 2.27 min & 3.47 s & 16.82 h & 28.66 min & 32.23 min & 50.13 s\\
+multipliers & 4.37 min & 6.58 s & 34.84 h & 64.71 min & 106.14 min & 2.72 min\\
+excited state (right) & 3.47 min & 5.37 s & 36.89 h & 70.33 min & 3.64 h & 17.09 min\\
+excited state (left) & 3.15 min & 4.77 s & 20.62 h & 35.99 min & 74.14 min & 3.66 min\\
+Time to calculate EOM properties & 0.38 s & 0.01 s & 4.27 min & 12.25 s & 11.28 min & 23.43 s\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -177,13 +177,13 @@ Task & \multicolumn{2}{c}{ccs} & \multicolumn{2}{c}{ccsd} & \multicolumn{2}{c}{c
 \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
  & cpu & wall & cpu & wall & cpu & wall\\
 \midrule
-SCF solver & 18.96 h & 28.52 min & 18.94 h & 28.48 min & 18.98 h & 28.54 min\\
-Cholesky decomposition of ERIs & 82.07 min & 2.22 min & 75.72 min & 2.02 min & 76.15 min & 2.03 min\\
-CC GS solver time & 16.43 min & 25.27 s & 296.53 h & 8.24 h & 4.38 h & 6.97 min\\
-multipliers & 59.66 min & 90.32 s & 586.13 h & 18.41 h & 20.83 h & 32.79 min\\
-excited state (right) & 25.67 min & 40.20 s & 1667.03 h & 67.73 h & 96.19 h & 15.43 h\\
-excited state (left) & 31.29 min & 47.46 s & 442.52 h & 12.88 h & 19.58 h & 59.44 min\\
-Time to calculate EOM properties & 1.92 s & 0.05 s & 37.31 min & 105.06 s & 118.06 min & 3.96 min\\
+SCF solver & 18.96 h & 28.52 min & 18.80 h & 28.28 min & 18.98 h & 28.54 min\\
+Cholesky decomposition of ERIs & 82.07 min & 2.22 min & 77.52 min & 2.06 min & 76.15 min & 2.03 min\\
+CC GS solver time & 16.43 min & 25.27 s & 297.07 h & 8.28 h & 4.38 h & 6.97 min\\
+multipliers & 59.66 min & 90.32 s & 588.77 h & 17.51 h & 20.83 h & 32.79 min\\
+excited state (right) & 25.67 min & 40.20 s & 1670.70 h & 65.18 h & 96.19 h & 15.43 h\\
+excited state (left) & 31.29 min & 47.46 s & 443.33 h & 12.80 h & 19.58 h & 59.44 min\\
+Time to calculate EOM properties & 1.92 s & 0.05 s & 37.57 min & 106.36 s & 118.06 min & 3.96 min\\
 \bottomrule
 \end{tabular}
 \end{table}

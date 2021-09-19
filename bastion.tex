@@ -1,0 +1,226 @@
+\documentclass{article}
+\usepackage[landscape]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{multicol}
+\title{Bastion timing benchmark on (small) bigmem nodes on Saga}
+\date{\today}
+\begin{document}
+\maketitle
+\begin{table}
+\caption{acetamide aug-cc-pVTZ}
+\begin{tabular}{lcccccccc}
+\toprule
+Task & \multicolumn{2}{c}{cc2} & \multicolumn{2}{c}{ccsd} & \multicolumn{2}{c}{cc3} & \multicolumn{2}{c}{ccs}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+ & cpu & wall & cpu & wall & cpu & wall & cpu & wall\\
+\midrule
+SCF solver & -- & -- & -- & -- & -- & -- & -- & --\\
+Cholesky decomposition of ERIs & 4.31 min & 7.55 s & 3.90 min & 6.94 s & 3.75 min & 6.70 s & 3.89 min & 6.94 s\\
+CC GS solver time & 2.09 min & 3.18 s & 98.90 min & 3.18 min & 26.88 h & 41.17 min & 24.05 s & 0.62 s\\
+multipliers & 8.97 min & 13.58 s & 58.62 min & 2.06 min & 53.38 h & 81.86 min & 16.52 s & 0.44 s\\
+excited state (right) & 31.55 min & 108.21 s & 117.36 min & 4.63 min & 124.82 h & 3.18 h & 24.06 s & 0.64 s\\
+excited state (left) & 8.05 min & 18.01 s & 36.12 min & 71.92 s & 121.65 h & 3.12 h & 11.53 s & 0.31 s\\
+Time to calculate EOM properties & -- & -- & -- & -- & -- & -- & -- & --\\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}
+\caption{acetamide aug-cc-pVDZ}
+\begin{tabular}{lcccccccc}
+\toprule
+Task & \multicolumn{2}{c}{cc2} & \multicolumn{2}{c}{ccsd} & \multicolumn{2}{c}{cc3} & \multicolumn{2}{c}{ccs}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+ & cpu & wall & cpu & wall & cpu & wall & cpu & wall\\
+\midrule
+SCF solver & -- & -- & -- & -- & -- & -- & -- & --\\
+Cholesky decomposition of ERIs & 34.23 s & 1.20 s & 33.81 s & 1.27 s & 33.64 s & 1.15 s & 34.24 s & 1.15 s\\
+CC GS solver time & 16.55 s & 0.42 s & 5.79 min & 10.18 s & 78.95 min & 2.00 min & 3.81 s & 0.10 s\\
+multipliers & 35.39 s & 0.89 s & 6.29 min & 12.47 s & 2.66 h & 4.09 min & 2.95 s & 0.07 s\\
+excited state (right) & -- & -- & 11.01 min & 26.84 s & -- & -- & 5.54 s & 0.14 s\\
+excited state (left) & -- & -- & 3.67 min & 6.56 s & -- & -- & 2.12 s & 0.05 s\\
+Time to calculate EOM properties & -- & -- & -- & -- & -- & -- & -- & --\\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}
+\caption{thymine aug-cc-pVDZ}
+\begin{tabular}{lcccccccc}
+\toprule
+Task & \multicolumn{2}{c}{cc2} & \multicolumn{2}{c}{ccsd} & \multicolumn{2}{c}{ccs} & \multicolumn{2}{c}{cc3}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+ & cpu & wall & cpu & wall & cpu & wall & cpu & wall\\
+\midrule
+SCF solver & -- & -- & -- & -- & -- & -- & -- & --\\
+Cholesky decomposition of ERIs & 2.93 min & 5.84 s & 3.25 min & 6.32 s & 2.71 min & 5.49 s & 2.74 min & 5.54 s\\
+CC GS solver time & 3.88 min & 6.19 s & 86.46 min & 2.83 min & 28.84 s & 0.74 s & 130.36 h & 3.29 h\\
+multipliers & 11.68 min & 17.65 s & 102.57 min & 4.04 min & 40.32 s & 1.05 s & 283.34 h & 7.15 h\\
+excited state (right) & 44.39 min & 5.12 min & 3.18 h & 8.80 min & 33.11 s & 0.89 s & 673.23 h & 16.98 h\\
+excited state (left) & 12.78 min & 37.26 s & 59.57 min & 2.08 min & 29.67 s & 0.78 s & 628.34 h & 15.88 h\\
+Time to calculate EOM properties & -- & -- & -- & -- & -- & -- & -- & --\\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}
+\caption{formaldehyde aug-cc-pVTZ}
+\begin{tabular}{lcccccccc}
+\toprule
+Task & \multicolumn{2}{c}{ccsd} & \multicolumn{2}{c}{cc2} & \multicolumn{2}{c}{ccs} & \multicolumn{2}{c}{cc3}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+ & cpu & wall & cpu & wall & cpu & wall & cpu & wall\\
+\midrule
+SCF solver & -- & -- & -- & -- & -- & -- & -- & --\\
+Cholesky decomposition of ERIs & 40.14 s & 1.54 s & 41.64 s & 1.49 s & 38.38 s & 1.49 s & 39.37 s & 1.42 s\\
+CC GS solver time & 4.39 min & 7.41 s & 13.08 s & 0.33 s & 3.99 s & 0.10 s & 16.55 min & 25.50 s\\
+multipliers & 3.27 min & 5.55 s & 34.24 s & 0.86 s & 1.12 s & 0.03 s & 29.26 min & 46.52 s\\
+excited state (right) & 4.61 min & 8.15 s & 89.99 s & 4.29 s & 4.44 s & 0.11 s & 51.80 min & 79.85 s\\
+excited state (left) & 2.20 min & 5.43 s & 28.60 s & 0.81 s & 0.89 s & 0.02 s & 53.38 min & 84.07 s\\
+Time to calculate EOM properties & -- & -- & -- & -- & -- & -- & -- & --\\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}
+\caption{formaldehyde aug-cc-pVDZ}
+\begin{tabular}{lcccccccc}
+\toprule
+Task & \multicolumn{2}{c}{ccs} & \multicolumn{2}{c}{cc3} & \multicolumn{2}{c}{cc2} & \multicolumn{2}{c}{ccsd}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+ & cpu & wall & cpu & wall & cpu & wall & cpu & wall\\
+\midrule
+SCF solver & -- & -- & -- & -- & -- & -- & -- & --\\
+Cholesky decomposition of ERIs & 9.27 s & 0.31 s & 8.79 s & 0.27 s & 8.35 s & 0.26 s & 8.95 s & 0.30 s\\
+CC GS solver time & 1.34 s & 0.05 s & 111.92 s & 2.90 s & 3.24 s & 0.09 s & 23.11 s & 0.62 s\\
+multipliers & 0.67 s & 0.02 s & 3.87 min & 5.92 s & 3.79 s & 0.10 s & 35.62 s & 0.98 s\\
+excited state (right) & 3.45 s & 0.09 s & 6.59 min & 10.01 s & 15.83 s & 0.44 s & 41.49 s & 1.14 s\\
+excited state (left) & 0.65 s & 0.02 s & 6.33 min & 9.97 s & 6.73 s & 0.22 s & 26.33 s & 2.59 s\\
+Time to calculate EOM properties & -- & -- & -- & -- & -- & -- & -- & --\\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}
+\caption{furan aug-cc-pVTZ}
+\begin{tabular}{lcccccccc}
+\toprule
+Task & \multicolumn{2}{c}{cc2} & \multicolumn{2}{c}{ccsd} & \multicolumn{2}{c}{ccs} & \multicolumn{2}{c}{cc3}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+ & cpu & wall & cpu & wall & cpu & wall & cpu & wall\\
+\midrule
+SCF solver & -- & -- & -- & -- & -- & -- & -- & --\\
+Cholesky decomposition of ERIs & 4.64 min & 8.19 s & 4.58 min & 7.99 s & 5.01 min & 8.70 s & 4.68 min & 8.24 s\\
+CC GS solver time & 2.68 min & 4.10 s & 107.63 min & 2.93 min & 28.86 s & 0.74 s & 43.36 h & 65.51 min\\
+multipliers & 13.05 min & 20.13 s & 2.83 h & 4.93 min & 23.69 s & 0.64 s & 99.46 h & 2.53 h\\
+excited state (right) & 17.89 min & 49.34 s & 2.43 h & 4.28 min & 28.23 s & 0.74 s & 135.04 h & 3.42 h\\
+excited state (left) & 8.23 min & 17.87 s & 94.80 min & 2.63 min & 14.17 s & 0.37 s & 142.76 h & 3.63 h\\
+Time to calculate EOM properties & -- & -- & -- & -- & -- & -- & -- & --\\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}
+\caption{furan aug-cc-pVDZ}
+\begin{tabular}{lcccccccc}
+\toprule
+Task & \multicolumn{2}{c}{cc2} & \multicolumn{2}{c}{cc3} & \multicolumn{2}{c}{ccs} & \multicolumn{2}{c}{ccsd}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+ & cpu & wall & cpu & wall & cpu & wall & cpu & wall\\
+\midrule
+SCF solver & -- & -- & -- & -- & -- & -- & -- & --\\
+Cholesky decomposition of ERIs & 44.80 s & 1.81 s & 48.02 s & 1.81 s & 48.84 s & 2.30 s & 46.07 s & 1.83 s\\
+CC GS solver time & 21.39 s & 0.61 s & 2.58 h & 3.92 min & 4.65 s & 0.12 s & 8.15 min & 14.82 s\\
+multipliers & 47.70 s & 1.20 s & 4.96 h & 7.60 min & 4.64 s & 0.12 s & 9.47 min & 19.94 s\\
+excited state (right) & 2.02 min & 6.74 s & 7.20 h & 10.95 min & 6.01 s & 0.15 s & 8.20 min & 17.32 s\\
+excited state (left) & 51.02 s & 1.93 s & 7.44 h & 11.41 min & 3.73 s & 0.39 s & 4.74 min & 8.75 s\\
+Time to calculate EOM properties & -- & -- & -- & -- & -- & -- & -- & --\\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}
+\caption{betaine aug-cc-pVDZ}
+\begin{tabular}{lcccc}
+\toprule
+Task & \multicolumn{2}{c}{lowmem-cc2} & \multicolumn{2}{c}{ccs}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+ & cpu & wall & cpu & wall\\
+\midrule
+SCF solver & -- & -- & -- & --\\
+Cholesky decomposition of ERIs & 5.98 h & 9.97 min & 6.10 h & 9.89 min\\
+CC GS solver time & 193.51 h & 5.82 h & 105.21 min & 9.50 min\\
+multipliers & -- & -- & -- & --\\
+excited state (right) & 1465.10 h & 42.97 h & 2.81 h & 7.56 min\\
+excited state (left) & -- & -- & -- & --\\
+Time to calculate EOM properties & -- & -- & -- & --\\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}
+\caption{ATP aug-cc-pVDZ}
+\begin{tabular}{lcccc}
+\toprule
+Task & \multicolumn{2}{c}{ccs} & \multicolumn{2}{c}{lowmem-cc2}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+ & cpu & wall & cpu & wall\\
+\midrule
+SCF solver & -- & -- & -- & --\\
+Cholesky decomposition of ERIs & 2.08 h & 3.39 min & 2.04 h & 3.30 min\\
+CC GS solver time & 38.75 min & 58.78 s & 34.54 h & 55.00 min\\
+multipliers & -- & -- & -- & --\\
+excited state (right) & 64.54 min & 100.29 s & 903.19 h & 23.16 h\\
+excited state (left) & -- & -- & -- & --\\
+Time to calculate EOM properties & -- & -- & -- & --\\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}
+\caption{cytosine aug-cc-pVDZ}
+\begin{tabular}{lcccccccc}
+\toprule
+Task & \multicolumn{2}{c}{ccs} & \multicolumn{2}{c}{cc3} & \multicolumn{2}{c}{ccsd} & \multicolumn{2}{c}{cc2}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+ & cpu & wall & cpu & wall & cpu & wall & cpu & wall\\
+\midrule
+SCF solver & -- & -- & -- & -- & -- & -- & -- & --\\
+Cholesky decomposition of ERIs & 2.70 min & 5.02 s & 2.32 min & 4.45 s & 115.64 s & 3.90 s & 2.26 min & 4.38 s\\
+CC GS solver time & 30.40 s & 0.79 s & 48.81 h & 73.77 min & 51.28 min & 100.94 s & 2.43 min & 3.82 s\\
+multipliers & 39.93 s & 1.06 s & 98.90 h & 2.50 h & 58.15 min & 2.30 min & 7.37 min & 11.14 s\\
+excited state (right) & 52.57 s & 1.41 s & 324.20 h & 8.22 h & 64.00 min & 2.69 min & 38.37 min & 4.79 min\\
+excited state (left) & 32.13 s & 0.83 s & 344.38 h & 8.75 h & 33.26 min & 70.27 s & 6.52 min & 19.97 s\\
+Time to calculate EOM properties & -- & -- & -- & -- & -- & -- & -- & --\\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}
+\caption{tryptophane aug-cc-pVDZ}
+\begin{tabular}{lcccccc}
+\toprule
+Task & \multicolumn{2}{c}{ccsd} & \multicolumn{2}{c}{cc2} & \multicolumn{2}{c}{ccs}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+ & cpu & wall & cpu & wall & cpu & wall\\
+\midrule
+SCF solver & -- & -- & -- & -- & -- & --\\
+Cholesky decomposition of ERIs & 12.87 min & 22.42 s & 12.64 min & 22.02 s & 12.43 min & 21.67 s\\
+CC GS solver time & 16.82 h & 28.64 min & 28.41 min & 44.11 s & 105.22 s & 2.68 s\\
+multipliers & 34.86 h & 65.11 min & 106.75 min & 2.74 min & 4.30 min & 6.48 s\\
+excited state (right) & 36.94 h & 70.92 min & 3.60 h & 17.15 min & 3.16 min & 4.91 s\\
+excited state (left) & 20.60 h & 36.13 min & 73.81 min & 3.67 min & 2.84 min & 4.29 s\\
+Time to calculate EOM properties & -- & -- & -- & -- & -- & --\\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}
+\caption{lsd aug-cc-pVDZ}
+\begin{tabular}{lcccccc}
+\toprule
+Task & \multicolumn{2}{c}{ccs} & \multicolumn{2}{c}{ccsd} & \multicolumn{2}{c}{cc2}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+ & cpu & wall & cpu & wall & cpu & wall\\
+\midrule
+SCF solver & -- & -- & -- & -- & -- & --\\
+Cholesky decomposition of ERIs & 70.73 min & 112.55 s & 70.59 min & 111.95 s & 74.53 min & 118.24 s\\
+CC GS solver time & 12.23 min & 18.77 s & 296.47 h & 8.17 h & 4.31 h & 6.88 min\\
+multipliers & 59.52 min & 90.11 s & 588.62 h & 17.21 h & 20.87 h & 32.37 min\\
+excited state (right) & 23.42 min & 36.77 s & 1671.32 h & 66.63 h & 93.10 h & 16.90 h\\
+excited state (left) & 29.18 min & 44.18 s & 442.88 h & 12.93 h & 19.51 h & 58.97 min\\
+Time to calculate EOM properties & -- & -- & -- & -- & -- & --\\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{document}
